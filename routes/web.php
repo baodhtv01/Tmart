@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+DEFINE('ADMIN_PANEL_PATH', 'admin');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//admin group routes
+Route::group(['prefix' => ADMIN_PANEL_PATH, 'middleware' => ['auth','IsAdmin']], function () {
+   Route::get('/', 'dashboardController@index')->name('admin.dashboard');
+});

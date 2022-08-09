@@ -26,7 +26,14 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //redurect to laravel ui
+    //if you admin
+    //redirect to admin page
+    //if you user
+    //redirect to user page
+
+
+    protected $redirectTo ='/admin';
 
     /**
      * Create a new controller instance.
@@ -44,4 +51,7 @@ class LoginController extends Controller
        request()->merge([$this->username => $loginValue]);
         return property_exists($this, 'username') ? $this->username : 'email';
     }
+    //add check user is active or not if not active then redirect to login page
+
+
 }
