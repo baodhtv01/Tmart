@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 DEFINE('ADMIN_PANEL_PATH', 'admin');
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
@@ -24,4 +22,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //admin group routes
 Route::group(['prefix' => ADMIN_PANEL_PATH, 'middleware' => ['auth','IsAdmin']], function () {
    Route::get('/', 'dashboardController@index')->name('admin.dashboard');
+
+   //users group routes
+    Route::group(['prefix' => 'users'], function () {
+         Route::get('/user-admin', 'UserController@indexAdmin')->name('admin.index');
+    });
+
 });
+Route::get('/', 'dashboardController@frontend')->name('admin.dashboard');
+

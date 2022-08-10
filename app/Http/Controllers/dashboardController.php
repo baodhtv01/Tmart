@@ -11,4 +11,9 @@ class dashboardController extends Controller
     {
         return view('admin.dashboard.dashboard');
     }
+    //frontend
+    public function frontend()
+    {
+        return view('frontEnd.home');
+    }
 }
