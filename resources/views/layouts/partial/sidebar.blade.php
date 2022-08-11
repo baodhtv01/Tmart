@@ -35,7 +35,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">User:</h6>
                 <a class="collapse-item" href="{{route('admin.index')}}">Admin</a>
-                <a class="collapse-item" href="cards.html">User</a>
+                <a class="collapse-item" href="{{route('user.index')}}">User</a>
                 <a class="collapse-item" href="cards.html">Thêm tài khoản</a>
                 <h6 class="collapse-header">Tài khoản của bạn:</h6>
                 <a class="collapse-item" href="cards.html">Thông tin cá nhân</a>

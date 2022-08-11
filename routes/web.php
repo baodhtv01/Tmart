@@ -26,6 +26,7 @@ Route::group(['prefix' => ADMIN_PANEL_PATH, 'middleware' => ['auth','IsAdmin']],
    //users group routes
     Route::group(['prefix' => 'users'], function () {
          Route::get('/user-admin', 'UserController@indexAdmin')->name('admin.index');
+            Route::get('/user-user', 'UserController@indexUser')->name('user.index');
     });
 
 });
