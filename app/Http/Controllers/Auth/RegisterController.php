@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\location;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -65,7 +66,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -74,6 +74,14 @@ class RegisterController extends Controller
         ]);
 //        create role user many to many
         $user->roles()->attach(2);
+//        create location
+        $location = new location();
+        $location->user_id = $user->id;
+        $location->street = $data['street'];
+        $location->province_id = $data['province'];
+        $location->district_id = $data['district'];
+        $location->ward_id = $data['wards'];
+        $location->save();
         return $user;
     }
 }

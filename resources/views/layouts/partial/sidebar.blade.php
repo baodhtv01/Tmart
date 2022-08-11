@@ -36,10 +36,10 @@
                 <h6 class="collapse-header">User:</h6>
                 <a class="collapse-item" href="{{route('admin.index')}}">Admin</a>
                 <a class="collapse-item" href="{{route('user.index')}}">User</a>
-                <a class="collapse-item" href="cards.html">Thêm tài khoản</a>
+                <a class="collapse-item" href="{{route('user.create')}}">Thêm tài khoản</a>
                 <h6 class="collapse-header">Tài khoản của bạn:</h6>
-                <a class="collapse-item" href="cards.html">Thông tin cá nhân</a>
-                <a class="collapse-item" href="cards.html">Đổi mật khẩu</a>
+                <a class="collapse-item" href="{{route('user.info',['id'=>Auth::user()->id])}}">Thông tin cá nhân</a>
+                <a class="collapse-item" href="{{route('user.changePass',['id'=>Auth::user()->id])}}">Đổi mật khẩu</a>
             </div>
         </div>
     </li>

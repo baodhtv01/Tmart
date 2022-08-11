@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('status')->default(true);
+        Schema::create('provinces', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 100);
+            $table->string('code', 20);
         });
     }
 
@@ -25,8 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('provinces');
     }
 };

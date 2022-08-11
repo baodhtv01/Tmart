@@ -47,4 +47,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+    //one to many relationship with location Model
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
+
 }
